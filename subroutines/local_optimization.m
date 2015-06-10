@@ -1,4 +1,4 @@
-function [inferred_X,inferred_Y] = local_optimization(starting_vec,r,A,n,m,stop_val,maxiter,verbose,opt_algo)
+function [inferred_X,inferred_Y] = local_optimization(starting_vec,r,A,n,m,stop_val,maxiter,verbose)
 	[I,J,VAL] = find(A);
 	Nnz = length(I);
 
