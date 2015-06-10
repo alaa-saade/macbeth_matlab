@@ -1,0 +1,28 @@
+MaCBetH : Matrix Completion with the Bethe Hessian
+
+COPYRIGHT (C) 2015 Alaa Saade
+Contact : alaa.saade@m4x.org
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Files included in this package :
+    complete.m : The main reconstruction code. 
+    macbeth_demo.m : a sample code to test the completion function
+    mex_all.m : a file to compile the mex files needed by the code
+    subroutines folder : all subroutines needed by the different parts of the algorithm. 
+   
+IMPORTANT : it is highly recommended that the minFunc software from 
+http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html be installed and on the matlab path. Without it, MaCBetH will attempt to perform the local optimization using Matlab's Optimization Toolbox, resulting in very slow and memory intensive processing. 
+
+USAGE : from matlab, run mex_all to compile the mex files. Make sure that the fodler containing the minFunc files in on the matlab path. Then :
+- macbeth_demo : runs macbeth on a synthetic example
+- complete : is main reconstruction code that completes a partially observed matrix (assumed to be centered).
+use help macbeth_demo and help complete for usage of these functions. 
+
+Comments and remarks regarding bugs or functionalities are more than welcome :-).
