@@ -6,7 +6,7 @@ function [inferred_X,inferred_Y] = local_optimization(starting_vec,r,A,n,m,stop_
 	count = 0;
 
 	if (exist('minFunc')==2)    
-		disp('Cleaning using minFunc from http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html');
+		fprintf('Cleaning using minFunc from: \nhttp://www.cs.ubc.ca/~schmidtm/Software/minFunc.html\n');
 		options.progTol=Nnz*stop_val^2;
 		options.maxiter=maxiter;
 		options.Display = 'off';
@@ -16,7 +16,7 @@ function [inferred_X,inferred_Y] = local_optimization(starting_vec,r,A,n,m,stop_
 		minx = minFunc(myfun,starting_vec,options);
 	else
 		disp('Cleaning using lsqnonlin from the optimization toolbox');
-		disp('For much better performance, consider using minFunc from http://www.cs.ubc.ca/~schmidtm/Software/minFunc.html');
+		fprintf('For much better performance, consider using minFunc from: \nhttp://www.cs.ubc.ca/~schmidtm/Software/minFunc.html\n');
 		[u,v] = compute_sparsity_pattern_jac(I,J,Nnz,n,m,r);
 		myfun = @(x)costfunc_lsqnonlin(x,I,J,VAL,n,m,r,u,v,verbose);
 		options = optimoptions('lsqnonlin','Diagnostics','off','Jacobian','on','Display','iter-detailed','DerivativeCheck','off','Algorithm','levenberg-marquardt','ScaleProblem','Jacobian','MaxIter',15,'TolFun',1e-30,'TolX',1e-30); 
