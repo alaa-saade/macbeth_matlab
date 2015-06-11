@@ -1,4 +1,5 @@
-.mexmaci64
+subroutines/*.mexmaci64
 .log
 .o
 .DS_Store
+minFunc_2012/
